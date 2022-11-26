@@ -1,0 +1,26 @@
+.header {
+  background-color: rgb(197, 194, 194);
+  color: #fff;
+  padding: 10px 24px;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .header__left {
+    font-size: 28px;
+    font-weight: 800;
+    color: #f14c4c;
+    font-style: italic;
+    cursor: pointer;
+  }
+  .header__right {
+    p {
+      display: inline-block;
+      margin-right: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: 600;
+      color: rgb(201, 61, 43);
+    }
+  }
+}

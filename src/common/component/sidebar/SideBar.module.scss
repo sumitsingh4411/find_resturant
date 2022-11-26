@@ -1,0 +1,21 @@
+.sidebar {
+  width: 250px;
+  height: calc(100vh - 70px);
+  background-color: #f5f5f5;
+  .sidebar__item {
+    display: flex;
+    align-items: center;
+    padding: 16px 24px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    &:hover {
+      background-color: rgb(158, 132, 231);
+      color: #fff;
+    }
+  }
+  .active_link {
+    background-color: rgb(72, 43, 201);
+    color: #fff;
+  }
+}
