@@ -3,9 +3,10 @@ import style from "./Login.module.scss";
 import CustomInput from '../../common/component/customInput/CustomInput';
 import { CheckUser, getAuthConfig, validate } from '../../common/helper';
 import axios from 'axios';
-import { AIRTABLE_URL, INITIAL_STATE } from '../../common/constant';
+import { AIRTABLE_URL, INITIAL_STATE, URLPaths } from '../../common/constant';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 
 export default function Login() {
     const navigator = useNavigate();
@@ -47,18 +48,21 @@ export default function Login() {
                         loading: false,
                         error: ""
                     });
-                    navigator("/dashboard");
+                    navigator(URLPaths.DASHBOARD);
+                    toast.success("Login Successfully");
                 } else {
                     setLoginData({
                         loading: false,
                         error: "Invalid Credentials"
                     });
+                    toast.error("Invalid Credentials");
                 }
             } catch (err) {
                 setLoginData({
                     loading: false,
                     error: "Something went wrong"
                 });
+                toast.error("Something went wrong");
             }
         }
         return;
