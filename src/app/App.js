@@ -4,6 +4,7 @@ import AllRoutes from './AllRoutes';
 import Header from '../common/component/header/Header';
 import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (

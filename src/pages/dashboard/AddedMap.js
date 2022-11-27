@@ -7,7 +7,7 @@ import style from "./Dashboard.module.scss";
 
 function AddedMap() {
     const dispatch = useDispatch();
-    const { mapData, bookmark } = useSelector(state => state.mapData);
+    const { mapData } = useSelector(state => state.mapData);
 
     useEffect(() => {
         if (mapData?.length === 0) {
@@ -19,12 +19,21 @@ function AddedMap() {
     }, [])
 
     const bookMark = (data) => {
-        let tempData = [...bookmark, data];
+        let bookmarkData = JSON.parse(localStorage.getItem(CONSTANT_DATA.BOOKMARK));
+        let arr = [];
+        if (bookmarkData?.length > 0) {
+            arr = bookmarkData;
+        }
+        let tempData = [...arr, data];
         dispatch(mapDataActions.addBookmark(tempData));
         localStorage.setItem(CONSTANT_DATA.BOOKMARK, JSON.stringify(tempData));
-        toast.success("Bookmarked Successfully");
 
+        let mapData_ = mapData?.filter(item => data.id !== item.id);
+        dispatch(mapDataActions.setMapData(mapData_));
+        localStorage.setItem(CONSTANT_DATA.MAP_DATA, JSON.stringify(mapData_));
+        toast.success("Bookmarked Successfully");
     }
+
     const removeItem = (data) => {
         let tempData = mapData.filter(item => data !== item.id);
         dispatch(mapDataActions.setMapData(tempData));

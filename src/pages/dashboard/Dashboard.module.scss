@@ -48,6 +48,7 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+    position: relative;
   }
   .dashboard__right__header__search__result {
     display: flex;
@@ -57,6 +58,10 @@
     border-radius: 4px;
     max-height: 500px;
     overflow-y: auto;
+    z-index: 100;
+    position: absolute;
+    top: 100%;
+    left: 0;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     .dashboard__right__header__search__result__item__name {
       font-size: 16px;
